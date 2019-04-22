@@ -13,22 +13,16 @@ const patient = new Patient('Dragan', 'Peric', '0103994020394', 105);
 
 // Pacijent bira Milana za svog doktora i Dragan postaje Milanov pacijent.
 patient.setDoctor(doctor);
-logger.log('Patient ' + patient.firstName + ' ' + patient.lastName + ' is choosing ' +
-doctor.firstName + ' ' + doctor.lastName + ' for his doctor')
 // Doktor zakazuje preglede
 const labExamination1 = new BloodPressure(formatedDate(), patient);
 const labExamination2 = new BloodSugar(formatedDate(), patient);
 
 doctor.schedulingExamination(labExamination1);
-logger.log('Sheduling blood pressure examination for ' + labExamination1.patient.firstName);
 doctor.schedulingExamination(labExamination2);
-logger.log('Sheduling blood sugar examination for ' + labExamination2.patient.firstName);
 
 // Doktor obavlja preglede
 patient.performExamination(labExamination1);
-logger.log('Performing  lab examination for ' + labExamination1.patient.firstName);
 patient.performExamination(labExamination2);
-logger.log('Performing lab examination for ' + labExamination2.patient.firstName);
 
 logger.log('Resluts:')
 console.log(patient.examinationResults);

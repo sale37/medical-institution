@@ -9,6 +9,16 @@ class Logger {
     log(message) {
       console.log(formatedDate() + ' ' + message);
     }
+
+    schedulingExamination(labExamination){        
+        console.log(`${formatedDate()} Sheduling lab examination for ${labExamination.patient.firstName}`)
+    }
+
+    performingExamination(labExamination){
+        const name = labExamination.constructor.name.match(/[A-Z][a-z]+/g).join(' ');
+        console.log(`${formatedDate()} Performing ${name} examination for ${labExamination.patient.firstName}`)
+    }
+
 }
 
 export function formatedDate(){

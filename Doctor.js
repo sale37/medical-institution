@@ -22,6 +22,7 @@ class Doctor{
 
     schedulingExamination(labExamination){
         this.sheduledExaminations.push(labExamination);
+        logger.schedulingExamination(labExamination);
     }
 
     addPatient(patient){

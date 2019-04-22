@@ -20,6 +20,8 @@ class Patient{
     setDoctor(doctor){
         this.doctor = doctor;
         doctor.addPatient(this);
+        logger.log('Patient ' + this.firstName + ' ' + this.lastName + ' is choosing ' +
+        doctor.firstName + ' ' + doctor.lastName + ' for his doctor');
     }
 
     performExamination(labExamination){
@@ -27,15 +29,19 @@ class Patient{
             labExamination.generateResults(labExamination);
             this.examinationResults.push(labExamination);
             removeExamination(labExamination);
+            logger.performingExamination(labExamination);
     
         }else if(labExamination instanceof BloodSugar){
             labExamination.generateResults(labExamination);
             this.examinationResults.push(labExamination);
             removeExamination(labExamination);
+            logger.performingExamination(labExamination);
+
         }else if(labExamination instanceof BloodCholesterol){
             labExamination.generateResults(labExamination);
             this.examinationResults.push(labExamination);
             removeExamination(labExamination);
+            logger.performingExamination(labExamination);
         }
     }
 }
